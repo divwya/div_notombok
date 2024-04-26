@@ -23,6 +23,7 @@ local function DisableTombok(monkey)
 end
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function() 
+    Wait(3000)
     if exports.xperience:GetRank() < 3 then
         DisableTombok(true)
     end
