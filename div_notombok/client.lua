@@ -12,11 +12,11 @@ local function DisableTombok(monkey)
             DisableControlAction(0, 37, true) 
             DisablePlayerFiring(PlayerPedId(), true)
             DisableControlAction(0, 140, true)
-            if IsPedInMeleeCombat(PlayerPedId()) then
+            --[[if IsPedInMeleeCombat(PlayerPedId()) then
                 lib.callback('nakal:sungguh', false, function() -- Guna Callback derr elak hackerr
                     -- Kick Dak Dak Bypass Tombok 
                 end)
-            end
+            end]]--
             Wait(1) 
         end
     end)
