@@ -12,10 +12,8 @@ local function DisableTombok(monkey)
             DisableControlAction(0, 37, true) 
             DisablePlayerFiring(PlayerPedId(), true)
             DisableControlAction(0, 140, true)
-            if IsPedPerformingMeleeAction(PlayerPedId()) then
-                lib.callback('nakal:sungguh', false, function() -- Guna Callback derr elak hackerr
-                    -- Kick Dak Dak Bypass Tombok 
-                end)
+            if IsPedPerformingMeleeAction(PlayerPedId()) or IsPedShooting(PlayerPedId()) then
+                local tendang = lib.callback.await('entah:la', false)
             end
             Wait(1) 
         end
