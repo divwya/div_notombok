@@ -1,8 +1,18 @@
+local leveltipu = 0 
+
+lib.onCache('ped', function(value)
+    if value then
+        local levelskang = exports.xperience:GetRank()
+        leveltipu = levelskang
+    end
+end)
+
 local function DisableTombok(monkey)
+    leveltipu = exports.xperience:GetRank()
     CreateThread(function() 
         while monkey do
-            if exports.xperience:GetRank() >= 3 then
-                break -- Break Bila Dah Reach Level 3 tak perlu relog untuk bypass tombok
+            if leveltipu >= 3 then
+                break
             end
             if IsPedArmed(PlayerPedId(), 4) then
                 TriggerEvent("ox_inventory:disarm", true)
