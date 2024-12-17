@@ -1,7 +1,7 @@
 local leveltipu = 0 
 
 lib.onCache('ped', function(value)
-    if value then
+    if value and LocalPlayer.state.isLoggedIn then
         local levelskang = exports.xperience:GetRank()
         leveltipu = levelskang
     end
@@ -14,15 +14,16 @@ local function DisableTombok(monkey)
             if leveltipu >= 3 then
                 break
             end
-            if IsPedArmed(PlayerPedId(), 4) then
+            local ped = PlayerPedId()
+            if IsPedArmed(ped, 4) then
                 TriggerEvent("ox_inventory:disarm", true)
             end
             DisableControlAction(0, 24, true) 
             DisableControlAction(0, 25, true) 
             DisableControlAction(0, 37, true) 
-            DisablePlayerFiring(PlayerPedId(), true)
+            DisablePlayerFiring(ped, true)
             DisableControlAction(0, 140, true)
-            if IsPedPerformingMeleeAction(PlayerPedId()) or IsPedShooting(PlayerPedId()) then
+            if IsPedPerformingMeleeAction(ped) or IsPedShooting(ped) then
                 local tendang = lib.callback.await('entah:la', false)
             end
             Wait(1) 
