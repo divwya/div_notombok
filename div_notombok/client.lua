@@ -15,9 +15,7 @@ local function DisableTombok(monkey)
     leveltipu = exports.xperience:GetRank()
     CreateThread(function() 
         while monkey do
-            if leveltipu >= 3 then
-                break
-            end
+            if leveltipu >= 3 then break end
             local ped = PlayerPedId()
             if IsPedArmed(ped, 4) then
                 TriggerEvent("ox_inventory:disarm", true)
