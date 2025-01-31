@@ -1,16 +1,5 @@
 local leveltipu = 0 
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function() 
-    Wait(3000)
-    if exports.xperience:GetRank() < 3 then DisableTombok(true) end
-end)
-
-lib.onCache('ped', function(value)
-    if value and LocalPlayer.state.isLoggedIn then 
-        leveltipu = exports.xperience:GetRank() 
-    end
-end)
-
 local function DisableTombok(monkey)
     leveltipu = exports.xperience:GetRank()
     CreateThread(function() 
@@ -32,3 +21,14 @@ local function DisableTombok(monkey)
         end
     end)
 end
+
+lib.onCache('ped', function(value)
+    if value and LocalPlayer.state.isLoggedIn then 
+        leveltipu = exports.xperience:GetRank() 
+    end
+end)
+
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function() 
+    Wait(3000)
+    if exports.xperience:GetRank() < 3 then DisableTombok(true) end
+end)
